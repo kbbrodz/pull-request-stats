@@ -1,7 +1,6 @@
 const { updatePullRequest } = require('../fetchers');
 const core = require('@actions/core');
 const fs = require('fs');
-const fs_promises = require('fs/promises');
 
 const buildBody = (currentBody, content) => {
   if (!currentBody.trim()) return content;

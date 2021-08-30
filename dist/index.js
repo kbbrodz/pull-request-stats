@@ -418,14 +418,6 @@ function onceStrict (fn) {
 
 /***/ }),
 
-/***/ 52:
-/***/ (function(module) {
-
-module.exports = eval("require")("fs/promises");
-
-
-/***/ }),
-
 /***/ 57:
 /***/ (function(module, __unusedexports, __webpack_require__) {
 
@@ -1298,7 +1290,6 @@ module.exports = (pulls) => groupReviews(pulls).map(({ author, reviews }) => {
 const { updatePullRequest } = __webpack_require__(162);
 const core = __webpack_require__(470);
 const fs = __webpack_require__(747);
-const fs_promises = __webpack_require__(52);
 
 const buildBody = (currentBody, content) => {
   if (!currentBody.trim()) return content;
