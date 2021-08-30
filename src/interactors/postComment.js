@@ -1,5 +1,5 @@
 const { updatePullRequest } = require('../fetchers');
-
+const core = require('@actions/core');
 const fs = require('fs');
 
 const buildBody = (currentBody, content) => {
@@ -26,6 +26,6 @@ module.exports = ({
   currentBody,
   pullRequestId,
 }) => fs.writeFile('reviewers.html', content, function (err) {
-  if (err) return console.log(err);
-  console.log('Reviwers report written to reviewers.html');
+  if (err) core.error(err);
+  core.info('Reviwers report written to reviewers.html');
 });
