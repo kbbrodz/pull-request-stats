@@ -9711,7 +9711,8 @@ const getMessage = (periodLength) => {
 
 module.exports = ({ table, periodLength }) => {
   const message = getMessage(periodLength);
-  return `${TABLE_TITLE}\n${message}\n${table}`;
+  // Add extra newline to fix formatting in GH Pages https://github.com/pages-themes/cayman/issues/82
+  return `${TABLE_TITLE}\n\n${message}\n${table}`;
 };
 
 
