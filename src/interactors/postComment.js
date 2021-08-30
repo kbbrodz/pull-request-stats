@@ -25,7 +25,7 @@ module.exports = ({
   content,
   currentBody,
   pullRequestId,
-}) => fs.writeFile('reviewers.html', content, function (err) {
+}) => fs.writeFile('reviewers.md', content, function (err) {
   if (err) core.error(err);
   core.info('Reviwers report written to reviewers.html');
 });
