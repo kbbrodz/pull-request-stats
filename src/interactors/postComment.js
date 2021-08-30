@@ -2,6 +2,8 @@ const { updatePullRequest } = require('../fetchers');
 const core = require('@actions/core');
 const fs = require('fs');
 
+import { mkdir } from 'fs/promises';
+
 const buildBody = (currentBody, content) => {
   if (!currentBody.trim()) return content;
   return `${currentBody}\n${content}`;
@@ -25,7 +27,9 @@ module.exports = ({
   content,
   currentBody,
   pullRequestId,
-}) => fs.writeFile('reviewers.md', content, function (err) {
+}) => 
+  mkdir("build").then(ok => { core.debug("Created 'build' directory");}).catch(err => { core.error("Couldn't create build directory"); });
+  fs.writeFile('build/reviewers.md', content, function (err) {
   if (err) core.error(err);
   core.info('Reviwers report written to reviewers.html');
 });
