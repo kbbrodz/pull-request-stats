@@ -42,7 +42,8 @@ const getParams = () => {
 
 const run = async () => {
   try {
-    validateEnv(github);
+    // This only checks if this is a pull request
+    // validateEnv(github);
     await execute(getParams());
     core.info('Action successfully executed');
   } catch (error) {
