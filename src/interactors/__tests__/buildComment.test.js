@@ -10,7 +10,7 @@ describe('Interactors | .buildComment', () => {
     const message = 'Stats for the last day:';
 
     it('builds the message in singular', () => {
-      const expected = `${title}\n\n${message}\n${TABLE_MOCK}`;
+      const expected = `${title}\n${message}\n\n${TABLE_MOCK}`;
       const response = buildComment({ periodLength, table: TABLE_MOCK });
       expect(response).toEqual(expected);
     });
@@ -21,7 +21,7 @@ describe('Interactors | .buildComment', () => {
     const message = 'Stats for the last 365 days:';
 
     it('builds the message in singular', () => {
-      const expected = `${title}\n\n${message}\n${TABLE_MOCK}`;
+      const expected = `${title}\n${message}\n\n${TABLE_MOCK}`;
       const response = buildComment({ periodLength, table: TABLE_MOCK });
       expect(response).toEqual(expected);
     });
