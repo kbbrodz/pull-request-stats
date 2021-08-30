@@ -30,11 +30,14 @@ const run = async (params) => {
 
   const octokit = github.getOctokit(githubToken);
 
+  // TODO: make this conditional on trigger type
+  /*
   const pullRequest = await getPullRequest({ octokit, pullRequestId });
   if (alreadyPublished(pullRequest)) {
     core.info('Skipping execution because stats are published already');
     return false;
   }
+  */
 
   const startDate = subtractDaysToDate(new Date(), periodLength);
   const pulls = await getPulls({
@@ -61,7 +64,9 @@ const run = async (params) => {
     octokit,
     content,
     pullRequestId,
-    currentBody: pullRequest.body,
+    // TODO: make this conditional on trigger type
+    //currentBody: pullRequest.body,
+    currentBody: "",
   });
   core.debug('Posted comment successfully');
 
