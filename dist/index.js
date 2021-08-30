@@ -9883,7 +9883,9 @@ const getRepositories = (currentRepo) => {
   return input ? parseArray(input) : [currentRepo];
 };
 
-const getPrId = () => get(github, 'context.payload.pull_request.node_id');
+// TODO: add an if condition for trigger type
+// const getPrId = () => get(github, 'context.payload.pull_request.node_id');
+const getPrId = () => 0;
 
 const getParams = () => {
   const { payload } = github.context || {};
