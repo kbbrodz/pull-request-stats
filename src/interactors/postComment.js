@@ -27,7 +27,7 @@ module.exports = ({
   currentBody,
   pullRequestId,
 }) => 
-  fs_promises.mkdir("build").then(ok => { core.debug("Created 'build' directory");}).catch(err => { core.error("Couldn't create build directory"); });
+  fs.mkdir("build", { recursive: true }, (err) => { if (err) throw err;});
   fs.writeFile('build/reviewers.md', content, function (err) {
   if (err) core.error(err);
   core.info('Reviwers report written to reviewers.html');
