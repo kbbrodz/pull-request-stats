@@ -9896,7 +9896,9 @@ const getPrId = () => 0;
 const getParams = () => {
   const { payload } = github.context || {};
   const { repository } = payload || {};
-  const currentRepo = repository.full_name;
+  // TODO :for some reason this doesn't work in a scheduled workflow
+  // const currentRepo = repository.full_name;
+  const currentRepo = "NA";
 
   return {
     currentRepo,
